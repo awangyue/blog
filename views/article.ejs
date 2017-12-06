@@ -1,0 +1,18 @@
+<%- include('header') %>
+    <!-- 文章 -->
+    <div class="post">
+
+        <div class="post_title">
+            <h2><%= post.title %></h2>
+            <div class="post_infor">
+                <div class="post_date"><%= post.postDate.toLocaleDateString() %></div>
+                <div class="author"><%= post.author.name %></div>
+            </div>
+        </div>
+
+        <div class="post_content">
+            <pre><%- post.content %></pre>
+        </div>
+
+    </div>
+<%- include('footer') %>

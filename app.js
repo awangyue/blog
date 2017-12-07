@@ -1,3 +1,4 @@
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -15,11 +16,14 @@ var flash = require('connect-flash');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+var http= require('http');//2
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+// all environments
+app.set('port',process.env.PORT||80); //可在此修改端口 1
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -50,6 +54,7 @@ app.use(function(req, res, next) {
     res.locals.error = req.flash('error').toString();
     next();
 });
+
 app.use('/', index);
 app.use('/users', users);
 
@@ -72,3 +77,7 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+//3
+http.createServer(app).listen(app.get('port'),function(){
+  console.log('Express server listening on port '+app.get('port'));
+});

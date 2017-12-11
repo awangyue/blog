@@ -11,16 +11,34 @@ a {
 a:hover {
     color: #888;
 }
+
 pre {
     display: block;
     padding: 0;
     margin: 0;
-    font-size: 14px;
+    font-size: 20px;
     line-height: 2em;
-    color: #000;
+    color: #5f5959;
     word-break: break-all;
     word-wrap: break-word;
     background: #fff;
+    border: 0;
+    border-radius: 0;
+}
+pre_1 {
+    display: block;
+    padding-top: 0;
+    padding-right: 1%;
+    padding-bottom: 0;
+    padding-left: 1%;
+
+    margin: 0;
+    font-size: 17px;
+    line-height: 2em;
+    color: #5f5959;
+    word-break: break-all;
+    word-wrap: break-word;
+    background: #f6f6f6;
     border: 0;
     border-radius: 0;
 }
@@ -80,4 +98,55 @@ pre {
 }
 .post_content {
     margin-top: 20px;
+}
+
+//评论样式
+.comments, .comment {
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.comments_count, .comment_intro {
+    background-color: #f6f6f6;
+    padding: 10px;
+}
+
+.comments_cell {
+    border-top: #f0f0f0 1px solid;
+    padding: 10px;
+}
+
+.comments_gravatar img{
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+.comments_infor {
+    font-size: 15px;
+}
+
+.comments_infor span {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.comments_content {
+    margin-top: 10px;
+    margin-left: 35px;
+}
+
+.comment textarea {
+    border: none;
+}
+
+.comment button {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.search {
+    padding: 5px;
 }

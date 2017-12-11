@@ -83,4 +83,79 @@ Db.find = function (collection, query, callback) {
     });
 };
 
+//通过id编辑某个文档
+Db.edit = function (collection, id, query, callback) {
+    var _id = new ObjectID(id);
+    MongoClient.connect(url, function (err, db) {
+        if(err) {
+            db.close();
+            return callback(err);
+        }
+        db.collection(collection).update({ _id: _id }, { $set: query }, function (err) {
+            if(err) {
+                db.close();
+                return callback(err);
+            }
+            db.close();
+            callback(null);
+        });
+    });
+};
+
+//通过id移除某个文档
+Db.remove = function(collection, id, callback) {
+    var _id = new ObjectID(id);
+    MongoClient.connect(url, function (err, db) {
+        if(err) {
+            db.close();
+            return callback(err);
+        }
+        db.collection(collection).remove({ _id: _id }, function(err) {
+            if(err) {
+                db.close();
+                return callback(err);
+            }
+            db.close();
+            callback(null);
+        });
+    });
+};
+
+//向文档中的数组添加元素 评论
+Db.push = function(collection, id, query, callback) {
+    var _id = new ObjectID(id);
+    MongoClient.connect(url, function(err, db) {
+        if(err) {
+            db.close();
+            return callback(err);
+        }
+        db.collection(collection).update({ _id: _id }, { $push: query }, function(err) {
+            if(err) {
+                db.close();
+                return callback(err);
+            }
+            db.close();
+            callback(null);
+        });
+    });
+};
+
+//让文档某数值增加
+Db.inc = function(collection, id, query, callback) {
+    var _id = new ObjectID(id);
+    MongoClient.connect(url, function(err, db) {
+        if(err) {
+            db.close();
+            return callback(err);
+        }
+        db.collection(collection).update({ _id: _id }, { $inc: query }, function(err) {
+            if(err) {
+                db.close();
+                return callback(err);
+            }
+            db.close();
+            callback(null);
+        });
+    });
+};
 module.exports = Db;

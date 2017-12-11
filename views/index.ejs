@@ -5,7 +5,7 @@
         <% posts.forEach(function(post) { %>
             <div class="post-cell">
                 <a href="#" class="gravatar">
-                    <img src="http://img.25pp.com/uploadfile/app/icon/20151007/1444161882126152.jpg@140w_140h" alt="头像">
+                    <img src="<%= post.author.gravatar %>" alt="头像">
                 </a>
                 <div class="post-infor">
                     <a href="/post/<%= post._id %>"><div class="title"><%= post.title %></div></a>
